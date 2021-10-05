@@ -58,7 +58,13 @@ app.get("/ask",function(req,res){
 app.post("/storequestion",(req, res) => {
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
-    res.send("Formulário recebido! titulo " + titulo + " " + " descricao " + descricao);
+    
+    Pergunta.create({
+        titulo: titulo,
+        descricao: descricao
+    }).then(() => {
+        res.redirect("/");
+    });
 });
 
 app.listen(4000,()=>{console.log("Servidor ativo!");});
