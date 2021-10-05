@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 // Instrução para o Express usar o EJS como View engine
 app.set('view engine','ejs');
 app.use(express.static('public'));
+
+// Body parser
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 /* app.get("/:nome/:lang",function(req,res){
     //res.send("<h1>Bem vindo à plataforma de Perguntas e Respostas</h1>");
@@ -37,6 +42,12 @@ app.get("/",function(req,res){
 
 app.get("/ask",function(req,res){
     res.render("ask");
+});
+
+app.post("/storequestion",(req, res) => {
+    var titulo = req.body.titulo;
+    var descricao = req.body.descricao;
+    res.send("Formulário recebido! titulo " + titulo + " " + " descricao " + descricao);
 });
 
 app.listen(8080,()=>{console.log("Servidor ativo!");});
