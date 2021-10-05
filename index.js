@@ -48,6 +48,15 @@ app.use(bodyParser.json());
 });
  */
 app.get("/",function(req,res){
+    /*Pergunta.findAll().then(perguntas => {
+        console.log(perguntas);
+    });*/
+    Pergunta.findAll({raw: true}).then(perguntas => {
+        res.render("index",{
+            perguntas: perguntas
+        });
+    });
+
     res.render("index");
 });
 
