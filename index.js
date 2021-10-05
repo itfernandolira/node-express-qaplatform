@@ -78,4 +78,17 @@ app.post("/storequestion",(req, res) => {
     });
 });
 
+app.get("/pergunta/:id",(req ,res) => {
+    var id = req.params.id;
+    Pergunta.findOne({
+        where: {id: id}
+    }).then(pergunta => {
+        if(pergunta != undefined){ // Pergunta encontrada
+            res.render("pergunta");
+        }else{ // Não encontrada
+            res.redirect("/");
+        }
+    });
+})
+
 app.listen(4000,()=>{console.log("Servidor ativo!");});
