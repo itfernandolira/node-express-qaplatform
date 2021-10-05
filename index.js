@@ -5,7 +5,7 @@ const app = express();
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
-app.get("/:nome/:lang",function(req,res){
+/* app.get("/:nome/:lang",function(req,res){
     //res.send("<h1>Bem vindo à plataforma de Perguntas e Respostas</h1>");
     //res.render("index");
     var nome = req.params.nome;
@@ -29,6 +29,14 @@ app.get("/:nome/:lang",function(req,res){
         msg: exibirMsg,
         produtos: produtos
     });
+});
+ */
+app.get("/",function(req,res){
+    res.render("index");
+});
+
+app.get("/ask",function(req,res){
+    res.render("ask");
 });
 
 app.listen(8080,()=>{console.log("Servidor ativo!");});

@@ -12,24 +12,6 @@
     <img src="/img/logo.png">
     <h1>Plataforma de Perguntas e Respostas</h1>
     <hr>
-    <h3>Lista de Perguntas</h3>
-    <hr>
-    <p>Nome:<%= nome %></p>
-    <p>Linguagem favorita:<%= lang %></p>
-    <p>Empresa:<%= empresa %></p>
-    <p>Inscritos no canal:<%= inscritos %></p>
-
-    <% if(msg == true){ %>
-        <h3>Isso é uma msg de erro!</h3>
-    <%} else { %>
-        <h3>Nenhum erro!</h3>
-    <%}%>
-
-    <% produtos.forEach(function(produto) { %>
-        <hr>
-        <h3><%= produto.nome %></h3>
-        <h4><%= produto.preco %></h4>
-    <% }) %>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
